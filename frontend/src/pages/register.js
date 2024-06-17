@@ -1,42 +1,51 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
-import { register } from '../services/auth';
-import Link from 'next/link';
+import AuthContext from '../context/AuthContext';
 
 export default function Register() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
-  const router = useRouter();
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const router = useRouter();
+    const { register } = useContext(AuthContext);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      console.log('Attempting to register');
-      const data = await register(name, email, password, isAdmin);
-      console.log('Registration successful', data);
-      localStorage.setItem('token', data.token);
-      router.push('/');
-    } catch (error) {
-      console.error('Erro no registro', error);
-    }
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await register({ name, email, password });
+            router.push('/');
+        } catch (error) {
+            console.error('Erro ao registrar', error);
+        }
+    };
 
-  return (
-    <div>
-      <h1>Registro</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} required />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-        <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} required />
-        <label>
-          <input type="checkbox" checked={isAdmin} onChange={(e) => setIsAdmin(e.target.checked)} />
-          Admin
-        </label>
-        <button type="submit">Registrar</button>
-      </form>
-      <Link href="/login">Já tem uma conta? Faça login</Link>
-    </div>
-  );
+    return (
+        <div className="container">
+            <h1>Registrar</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Nome"
+                    required
+                />
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Email"
+                    required
+                />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Senha"
+                    required
+                />
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    );
 }
