@@ -15,7 +15,7 @@ export default function CreateEvent() {
     try {
       const token = localStorage.getItem('token');
       await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/events`,
+        `${process.env.NEXT_PUBLIC_API_URL}api/events`,
         { title, description, date, location, slots },
         { headers: { Authorization: `Bearer ${token}` } }
       );
