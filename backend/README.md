@@ -1,5 +1,3 @@
-  Event Manager App - Backend README body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 20px; } h1, h2, h3 { color: #333; } code { background: #f4f4f4; padding: 2px 4px; border-radius: 4px; } pre { background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; } ul { margin: 0; padding: 0 0 0 20px; }
-
 Event Manager App - Backend
 ===========================
 
