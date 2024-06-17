@@ -1,6 +1,6 @@
 Event Manager App
 =================
-
+Exibição no Youtube: https://youtu.be/41CYe8PtKcc (demorei pra achar aonde publicava)
 Este é um projeto de gerenciamento de eventos desenvolvido usando Node.js, Express, MongoDB, React e Next.js. O aplicativo permite que usuários se registrem, façam login, criem eventos, participem de eventos e gerenciem seus perfis.
 
 Índice
