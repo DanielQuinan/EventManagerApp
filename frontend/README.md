@@ -1,5 +1,3 @@
-  Frontend Documentation body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f7f7f7; color: #333; margin: 0; padding: 0; } .container { max-width: 800px; margin: 2rem auto; padding: 2rem; background: #fff; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.1); } pre { background: #f4f4f4; padding: 1rem; border-radius: 5px; overflow-x: auto; } code { font-family: 'Courier New', Courier, monospace; } h1, h2, h3 { color: #0070f3; }
-
 Frontend Documentation
 ======================
 
